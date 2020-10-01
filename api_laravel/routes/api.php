@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/users', function() {
-    $user = new stdClass();
-    $user->name = 'Jolan';
-    $user->email = 'jolan.maggiochi@gmail.com';
+    return response()->json(['success' => 'Method GET']);
+});
 
-    return response()->json($user);
+Route::post('/users', function(Request $request) {
+    return $request->all();
 });
