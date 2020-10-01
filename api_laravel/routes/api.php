@@ -14,10 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/users', function() {
-    return response()->json(['success' => 'Method GET']);
-});
-
-Route::post('/users', function(Request $request) {
-    return $request->all();
-});
+Route::get('/users', 'TestController@getMethod');
+Route::post('/users', 'TestController@postMethod');
