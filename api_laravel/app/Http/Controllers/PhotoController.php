@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use stdClass;
 
 class PhotoController extends Controller
 {
@@ -34,7 +36,23 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:10',
+            'description' => 'required|min:15',
+        ], [
+            'title.required' => 'Le titre est obligatoire',
+            'description.required' => 'La description est obligatoire',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+        $photo = new stdClass();
+        $photo->title = $request->input('title');
+        $photo->description = $request->input('description');
+
+        return response()->json($photo);
     }
 
     /**
