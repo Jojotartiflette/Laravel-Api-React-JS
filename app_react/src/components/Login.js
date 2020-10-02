@@ -14,7 +14,7 @@ class Login extends React.Component
     }
 
     render() {
-        return(
+        return (
             <>
                 <form method="POST">
                     <input type="text" name="email" placeholder="Votre email" onChange={this.email}/>
