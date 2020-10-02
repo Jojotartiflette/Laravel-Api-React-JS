@@ -5,6 +5,7 @@ import Welcome from './components/Welcome';
 import Car from './components/Car';
 import Login from './components/Login';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Photos from './components/Photos';
 
 function App() {
   return (
@@ -22,12 +23,16 @@ function App() {
               <li>
                 <Link to="/car">Car</Link>
               </li>
+              <li>
+                <Link to="/photos">Photos</Link>
+              </li>
             </ul>
           </nav>
           <Switch>
             <Route exact path="/" component={Welcome}/>
             <Route path="/login" component={Login}/>
             <Route path="/car" component={Car}/>
+            <Route path="/photos" component={Photos}/>
           </Switch>
         </div>
       </Router>
