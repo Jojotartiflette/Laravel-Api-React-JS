@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/photos', 'PhotoController@index');
 Route::post('/photos', 'PhotoController@store')->middleware('App\Http\Middleware\PhotoMiddleware');
