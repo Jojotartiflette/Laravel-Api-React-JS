@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/register', 'AuthenticationController@register');
+Route::post('/login', 'AuthenticationController@login');
